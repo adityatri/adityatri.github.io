@@ -281,6 +281,11 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
+.job-title {
+    color: black !important;
+    font-size: 1rem !important;
+}
+
 .experience-item h4,
 .award-item h4 {
     font-size: 1.05rem;
