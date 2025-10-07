@@ -22,17 +22,15 @@
                 </nav>
             </div>
             <div class="sidebar-bottom">
-                <span class="location">Jakarta, Indonesia</span>
-                <span class="time">10.58 PM</span>
-                <button class="slot-button">Slot Booked</button>
-                <button class="add-button">+</button>
+                <span id="clock">Loading...</span>
+                <span class="location">Jakarta, Indonesia (WIB)</span>
             </div>
         </aside>
 
         <main class="content-area">
             <header class="header-main-content">
                 <div class="profile-greeting">
-                    <p class="small-text">adityatri</p>
+                    <img src="profile_square.png" alt="A placeholder image" class="circle-image">
                     <h1>Hello! I'm <br>Aditya Tri</h1>
                 </div>
                 <div class="bio-section">
@@ -112,6 +110,34 @@
             <a href="#" class="external-link-icon-only"><i class="fas fa-external-link-alt"></i></a>
         </div>
     </div>
+
+    <script>
+        function displayJakartaTime() {
+            const now = new Date();
+
+            // 1. Define the formatting options
+            const options = {
+                timeZone: 'Asia/Jakarta', // This is the key change
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true // Use 'false' for 24-hour format
+            };
+
+            // 2. Format the time using a locale and the options object
+            // 'en-US' is used here for a standard AM/PM format
+            const jakartaTime = now.toLocaleTimeString('en-US', options);
+
+            // 3. Update the HTML element
+            document.getElementById('clock').innerHTML = jakartaTime;
+        }
+
+        // Run the function immediately to show the time
+        displayJakartaTime();
+
+        // Update the clock every second
+        setInterval(displayJakartaTime, 1000);
+    </script>
 
 </body>
 </html>

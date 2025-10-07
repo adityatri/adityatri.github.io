@@ -87,7 +87,8 @@ body {
 }
 
 .sidebar-bottom .location,
-.sidebar-bottom .time {
+.sidebar-bottom .time,
+#clock {
     font-size: 0.85rem;
     color: var(--secondary-text-color);
 }
@@ -448,4 +449,11 @@ body {
     .btn {
         width: 100%;
     }
+}
+
+.circle-image {
+    border-radius: 50%; /* This is the key property */
+    width: 150px;        /* Set a specific width */
+    height: 150px;       /* Set a specific height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
