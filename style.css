@@ -1,0 +1,398 @@
+:root {
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #666;
+    --background-light: #f5f5f5;
+    --background-dark: #ebebeb; /* For sections like awards/experience background */
+    --accent-color: #000; /* For black buttons */
+    --border-color: #e0e0e0;
+    --button-background-light: #f0f0f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    display: flex; /* For positioning the right sidebar */
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #fff; /* Assuming white background for navbar */
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 50%; /* Adjust if it's a square with rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+    margin-right: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-text-color);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-right .location,
+.navbar-right .time {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+.slot-button {
+    background-color: var(--button-background-light);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+.add-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero Section */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Adjust ratio as needed */
+    gap: 80px;
+    padding: 80px 0 100px;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-pic img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero-bio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hero-bio h2 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--primary-text-color);
+}
+
+.hero-bio p {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.btn.primary:hover {
+    background-color: #333;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--button-background-light);
+}
+
+/* Sections Wrapper (Working Experience & Awards) */
+.sections-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 60px 0;
+}
+
+.working-experience,
+.awards-recognition {
+    background-color: #fff; /* Assuming a slightly off-white for these sections */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+.working-experience h3,
+.awards-recognition h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.experience-list,
+.award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.experience-item,
+.award-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--button-background-light); /* Or a slightly darker variant */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.icon-circle .fab {
+    font-size: 1.2rem;
+}
+
+.icon-circle-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-background-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    flex-shrink: 0;
+}
+
+.experience-item h4,
+.award-item h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.experience-item p,
+.award-item p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin: 5px 0 0;
+}
+
+.award-item {
+    justify-content: space-between;
+}
+
+.award-item > div { /* Text content div */
+    flex-grow: 1;
+}
+
+.award-link-icon {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-left: 15px;
+}
+
+
+/* Right Sidebar Icons */
+.right-sidebar {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    padding: 15px 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.right-sidebar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--background-light); /* Slightly lighter background for icons */
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.right-sidebar a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+
+/* Basic Responsiveness (Optional, but good practice) */
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .navbar-left, .navbar-right {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+    .sections-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .right-sidebar {
+        display: none; /* Hide on smaller screens or adjust position */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* Hide main nav links on smaller screens for simplicity */
+    }
+    .navbar-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-bio h2 {
+        font-size: 1.8rem;
+    }
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    .working-experience,
+    .awards-recognition {
+        padding: 30px;
+    }
+    .icon-circle, .icon-circle-small {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    .icon-circle-small {
+        font-size: 0.8rem;
+    }
+    .award-link-icon {
+        margin-left: 10px;
+    }
+}
