@@ -12,38 +12,36 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-light);
+    background-color: #fff; /* White background for the whole page */
     color: var(--primary-text-color);
     line-height: 1.6;
-    display: flex; /* For positioning the right sidebar */
-    justify-content: center;
     min-height: 100vh;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
+.main-layout {
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Navbar */
-.navbar {
+/* Left Sidebar (Navigation) */
+.left-sidebar {
+    width: 280px; /* Fixed width for the sidebar */
+    background-color: var(--background-light); /* Light background for the sidebar */
+    padding: 30px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: #fff; /* Assuming white background for navbar */
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes top and bottom content apart */
+    border-right: 1px solid var(--border-color);
+    position: sticky; /* Keeps sidebar in view */
     top: 0;
-    z-index: 1000;
+    height: 100vh; /* Make sidebar full height */
+    box-sizing: border-box; /* Include padding in width */
 }
 
-.navbar-left {
+.sidebar-top {
     display: flex;
-    align-items: center;
-    gap: 30px;
+    flex-direction: column;
+    gap: 40px; /* Space between logo and nav links */
 }
 
 .logo {
@@ -52,35 +50,44 @@ body {
     background-color: #000;
     color: #fff;
     padding: 8px 12px;
-    border-radius: 50%; /* Adjust if it's a square with rounded corners */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 25px;
     height: 25px;
+    margin-bottom: 20px; /* Space below the logo before links */
 }
 
-.nav-links a {
+.nav-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between nav links */
+}
+
+.nav-links-vertical a {
     text-decoration: none;
     color: var(--primary-text-color);
-    margin-right: 25px;
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links-vertical a:hover {
     color: var(--secondary-text-color);
 }
 
-.navbar-right {
+.sidebar-bottom {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
+    padding-top: 20px; /* Space from above content */
+    border-top: 1px solid var(--border-color); /* Separator line */
+    margin-top: auto; /* Pushes to bottom */
 }
 
-.navbar-right .location,
-.navbar-right .time {
+.sidebar-bottom .location,
+.sidebar-bottom .time {
     font-size: 0.85rem;
     color: var(--secondary-text-color);
 }
@@ -94,6 +101,7 @@ body {
     cursor: pointer;
     font-weight: 500;
     color: var(--primary-text-color);
+    width: fit-content; /* Make button only as wide as its content */
 }
 
 .add-button {
@@ -110,45 +118,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px; /* Space above add button */
 }
 
-/* Hero Section */
-.hero-section {
+/* Main Content Area */
+.content-area {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 60px 80px; /* Adjust padding for the content */
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Space between header and sections-wrapper */
+}
+
+.header-main-content {
     display: grid;
     grid-template-columns: 1fr 1.2fr; /* Adjust ratio as needed */
     gap: 80px;
-    padding: 80px 0 100px;
     align-items: center;
 }
 
-.hero-content {
+.profile-greeting {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
-.profile-pic img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--border-color);
+.profile-greeting .small-text {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin: 0;
 }
 
-.hero-content h1 {
+.profile-greeting h1 {
     font-size: 3.5rem;
     font-weight: 600;
     margin: 0;
     line-height: 1.1;
 }
 
-.hero-bio {
+.bio-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.hero-bio h2 {
+.bio-section h2 {
     font-size: 2.2rem;
     font-weight: 500;
     margin: 0;
@@ -156,7 +170,7 @@ body {
     color: var(--primary-text-color);
 }
 
-.hero-bio p {
+.bio-section .passion-text {
     font-size: 1rem;
     color: var(--secondary-text-color);
     margin: 0;
@@ -202,15 +216,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    padding: 60px 0;
 }
 
 .working-experience,
 .awards-recognition {
-    background-color: #fff; /* Assuming a slightly off-white for these sections */
+    background-color: var(--background-light); /* Light background for these sections as well */
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth, remove if not desired */
 }
 
 .working-experience h3,
@@ -239,13 +252,14 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: var(--button-background-light); /* Or a slightly darker variant */
+    background-color: #fff; /* White background for icons */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
     color: var(--primary-text-color);
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Subtle shadow for icon circles */
 }
 
 .icon-circle .fab {
@@ -256,7 +270,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--button-background-light);
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,6 +278,7 @@ body {
     font-weight: 600;
     color: var(--primary-text-color);
     flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .experience-item h4,
@@ -297,10 +312,11 @@ body {
 
 /* Right Sidebar Icons */
 .right-sidebar {
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: sticky; /* Keep it in place relative to its parent flex container */
+    top: 0;
+    align-self: flex-start; /* Align to the start of the cross axis */
+    margin-top: 60px; /* Align with top of content-area */
+    margin-left: 40px; /* Space from content area */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -308,6 +324,7 @@ body {
     padding: 15px 10px;
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    height: fit-content; /* Only take up space needed by content */
 }
 
 .right-sidebar a {
@@ -328,71 +345,102 @@ body {
     background-color: var(--accent-color);
     color: #fff;
 }
+.right-sidebar .external-link-icon-only {
+    font-size: 0.8rem; /* Smaller icon for the last one */
+}
 
-
-/* Basic Responsiveness (Optional, but good practice) */
-@media (max-width: 992px) {
-    .navbar {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
+/* Basic Responsiveness */
+@media (max-width: 1200px) {
+    .content-area {
+        padding: 40px;
     }
-    .navbar-left, .navbar-right {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .hero-section {
+    .header-main-content {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center;
     }
-    .hero-content {
-        align-items: center;
+    .profile-greeting h1 {
+        font-size: 3rem;
     }
-    .cta-buttons {
-        justify-content: center;
+    .bio-section h2 {
+        font-size: 1.8rem;
     }
     .sections-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
     .right-sidebar {
-        display: none; /* Hide on smaller screens or adjust position */
+        margin-left: 20px;
+        right: 10px; /* Adjust fixed position */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-layout {
+        flex-direction: column; /* Stack sidebar on top */
+    }
+    .left-sidebar {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: static; /* No longer sticky */
+    }
+    .sidebar-top {
+        flex-direction: row; /* Make top elements horizontal */
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    .nav-links-vertical {
+        flex-direction: row; /* Horizontal nav links */
+        gap: 15px;
+    }
+    .sidebar-bottom {
+        flex-direction: row; /* Horizontal bottom elements */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        border-top: none; /* Remove top border if sidebar is horizontal */
+        padding-top: 0;
+    }
+    .slot-button, .add-button {
+        width: auto;
+    }
+    .content-area {
+        padding: 30px;
+        gap: 50px;
+    }
+    .right-sidebar {
+        position: static; /* No longer fixed */
+        margin: 20px auto; /* Center it below content */
+        flex-direction: row; /* Display icons horizontally */
+        width: fit-content;
     }
 }
 
 @media (max-width: 768px) {
-    .navbar .nav-links {
+    .left-sidebar .nav-links-vertical {
         display: none; /* Hide main nav links on smaller screens for simplicity */
     }
-    .navbar-left {
-        width: 100%;
-        justify-content: space-between;
+    .sidebar-top {
+        justify-content: center;
+        margin-bottom: 20px;
     }
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .sidebar-bottom {
+        padding-top: 15px;
+        border-top: 1px solid var(--border-color);
     }
-    .hero-bio h2 {
-        font-size: 1.8rem;
+    .profile-greeting h1 {
+        font-size: 2.8rem;
+    }
+    .bio-section h2 {
+        font-size: 1.6rem;
+    }
+    .cta-buttons {
+        flex-direction: column; /* Stack buttons vertically */
     }
     .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    .working-experience,
-    .awards-recognition {
-        padding: 30px;
-    }
-    .icon-circle, .icon-circle-small {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-    .icon-circle-small {
-        font-size: 0.8rem;
-    }
-    .award-link-icon {
-        margin-left: 10px;
+        width: 100%;
     }
 }
