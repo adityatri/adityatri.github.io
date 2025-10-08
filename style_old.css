@@ -1,0 +1,467 @@
+:root {
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #666;
+    --background-light: #f5f5f5;
+    --background-dark: #ebebeb; /* For sections like awards/experience background */
+    --accent-color: #000; /* For black buttons */
+    --border-color: #e0e0e0;
+    --button-background-light: #f0f0f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* White background for the whole page */
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left Sidebar (Navigation) */
+.left-sidebar {
+    width: 280px; /* Fixed width for the sidebar */
+    background-color: var(--background-light); /* Light background for the sidebar */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes top and bottom content apart */
+    border-right: 1px solid var(--border-color);
+    position: sticky; /* Keeps sidebar in view */
+    top: 0;
+    height: 100vh; /* Make sidebar full height */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between logo and nav links */
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px; /* Space below the logo before links */
+}
+
+.nav-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between nav links */
+}
+
+.nav-links-vertical a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links-vertical a:hover {
+    color: var(--secondary-text-color);
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px; /* Space from above content */
+    border-top: 1px solid var(--border-color); /* Separator line */
+    margin-top: auto; /* Pushes to bottom */
+}
+
+.sidebar-bottom .location,
+.sidebar-bottom .time,
+#clock {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+.slot-button {
+    background-color: var(--button-background-light);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    width: fit-content; /* Make button only as wide as its content */
+}
+
+.add-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Space above add button */
+}
+
+/* Main Content Area */
+.content-area {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 60px 80px; /* Adjust padding for the content */
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Space between header and sections-wrapper */
+}
+
+.header-main-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Adjust ratio as needed */
+    gap: 80px;
+    align-items: center;
+}
+
+.profile-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-greeting .small-text {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+.profile-greeting h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.profile-greeting p {
+    margin-bottom: -0.5rem;
+}
+
+.bio-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bio-section h2 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--primary-text-color);
+}
+
+.bio-section .passion-text {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.btn.primary:hover {
+    background-color: #333;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--button-background-light);
+}
+
+/* Sections Wrapper (Working Experience & Awards) */
+.sections-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.working-experience,
+.awards-recognition {
+    background-color: var(--background-light); /* Light background for these sections as well */
+    padding: 40px;
+    border-radius: 20px;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth, remove if not desired */
+}
+
+.working-experience h3,
+.awards-recognition h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.experience-list,
+.award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.experience-item,
+.award-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #fff; /* White background for icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Subtle shadow for icon circles */
+}
+
+.icon-circle .fab {
+    font-size: 1.2rem;
+}
+
+.icon-circle-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.job-title {
+    color: black !important;
+    font-size: 1rem !important;
+}
+
+.experience-item h4,
+.award-item h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.experience-item p,
+.award-item p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin: 5px 0 0;
+}
+
+.award-item {
+    justify-content: space-between;
+}
+
+.award-item > div { /* Text content div */
+    flex-grow: 1;
+}
+
+.award-link-icon {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-left: 15px;
+}
+
+
+/* Right Sidebar Icons */
+.right-sidebar {
+    position: sticky; /* Keep it in place relative to its parent flex container */
+    top: 0;
+    align-self: flex-start; /* Align to the start of the cross axis */
+    margin-top: 60px; /* Align with top of content-area */
+    margin-left: 40px; /* Space from content area */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    padding: 15px 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    height: fit-content; /* Only take up space needed by content */
+}
+
+.right-sidebar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--background-light); /* Slightly lighter background for icons */
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.right-sidebar a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+.right-sidebar .external-link-icon-only {
+    font-size: 0.8rem; /* Smaller icon for the last one */
+}
+
+/* Basic Responsiveness */
+@media (max-width: 1200px) {
+    .content-area {
+        padding: 40px;
+    }
+    .header-main-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .profile-greeting h1 {
+        font-size: 3rem;
+    }
+    .bio-section h2 {
+        font-size: 1.8rem;
+    }
+    .sections-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .right-sidebar {
+        margin-left: 20px;
+        right: 10px; /* Adjust fixed position */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-layout {
+        flex-direction: column; /* Stack sidebar on top */
+    }
+    .left-sidebar {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: static; /* No longer sticky */
+    }
+    .sidebar-top {
+        flex-direction: row; /* Make top elements horizontal */
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    .nav-links-vertical {
+        flex-direction: row; /* Horizontal nav links */
+        gap: 15px;
+    }
+    .sidebar-bottom {
+        flex-direction: row; /* Horizontal bottom elements */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        border-top: none; /* Remove top border if sidebar is horizontal */
+        padding-top: 0;
+    }
+    .slot-button, .add-button {
+        width: auto;
+    }
+    .content-area {
+        padding: 30px;
+        gap: 50px;
+    }
+    .right-sidebar {
+        position: static; /* No longer fixed */
+        margin: 20px auto; /* Center it below content */
+        flex-direction: row; /* Display icons horizontally */
+        width: fit-content;
+    }
+}
+
+@media (max-width: 768px) {
+    .left-sidebar .nav-links-vertical {
+        display: none; /* Hide main nav links on smaller screens for simplicity */
+    }
+    .sidebar-top {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .sidebar-bottom {
+        padding-top: 15px;
+        border-top: 1px solid var(--border-color);
+    }
+    .profile-greeting h1 {
+        font-size: 2.8rem;
+    }
+    .bio-section h2 {
+        font-size: 1.6rem;
+    }
+    .cta-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+    .btn {
+        width: 100%;
+    }
+}
+
+.circle-image {
+    border-radius: 50%; /* This is the key property */
+    width: 125px;        /* Set a specific width */
+    height: 125px;       /* Set a specific height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.logo-circle {
+    width: 100px;
+    height: 100px;
+}
