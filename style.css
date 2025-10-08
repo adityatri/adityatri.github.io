@@ -47,15 +47,14 @@ body {
 .logo {
     font-weight: 700;
     font-size: 1.2rem;
-    background-color: #000;
     color: #fff;
     padding: 8px 12px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 20px; /* Space below the logo before links */
 }
 
@@ -155,6 +154,10 @@ body {
     font-weight: 600;
     margin: 0;
     line-height: 1.1;
+}
+
+.profile-greeting p {
+    margin-bottom: -0.5rem;
 }
 
 .bio-section {
@@ -453,7 +456,12 @@ body {
 
 .circle-image {
     border-radius: 50%; /* This is the key property */
-    width: 150px;        /* Set a specific width */
-    height: 150px;       /* Set a specific height */
+    width: 125px;        /* Set a specific width */
+    height: 125px;       /* Set a specific height */
     object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.logo-circle {
+    width: 100px;
+    height: 100px;
 }
