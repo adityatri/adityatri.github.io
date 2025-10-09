@@ -60,7 +60,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 180px 5% 80px;
-    min-height: 90vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
